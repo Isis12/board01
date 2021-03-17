@@ -26,8 +26,9 @@ public class ManagermodeRestController {
 	
 	@PostMapping(value = "/managermode/movieregistration", produces= "application/json;charest=utf-8" )
 	public ModelAndView pregistration(MultipartHttpServletRequest multi) {
-		System.out.println("씨발2222");
+		System.out.println("씨발22222222");
 		mav= me.movieRegistration(multi);
+		System.out.println("들어가라");
 		return mav;
 	}
 	

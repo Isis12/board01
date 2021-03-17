@@ -41,7 +41,7 @@ public class menuMM {
 		String basic= multi.getParameter("mo_basic");
 		String title= multi.getParameter("mo_orititle");
 		mo.setMo_basic(basic).setMo_code(code).setMo_country(country).setMo_day(day).setMo_director(director).setMo_genre(genre).setMo_grade(grade).setMo_orititle(title).setMo_perfomer(perfomer).setMo_time(time).setMo_title(name);
-		System.out.println(basic);
+		System.out.println(code);
 		
 		FileManager fm = new FileManager();
 		String file = fm.fileUp(multi);
@@ -53,10 +53,12 @@ public class menuMM {
 		
 		if(result) {
 			view= "/managermode/mregistration";
+			mav.addObject("msg","등록이 완료되었습니다.");
 			System.out.println("성공");
 			
 		}else {
 			view= "/managermode/mregistration";
+			mav.addObject("msg","등록이 실패하였습니다.");
 			System.out.println("씨발");
 		}
 		mav.setViewName(view);

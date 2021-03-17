@@ -187,7 +187,8 @@ button:hover{
 }
 </style>
 <body>
-<form id="fileForm" enctype="multipart/form-data">
+${msg}
+<form id="fileForm" action="/board/rest/managermode/movieregistration" method="post" enctype="multipart/form-data">
 	<div id="header">
 		<h1 id="logo">TEMPO</h1>
 	</div>
@@ -222,37 +223,37 @@ button:hover{
 		<div class="selectBox" id="firstbox">
 			 <p class="division">국가</p>
 			 <select class="test" multiple="multiple" id="country" name="mo_country">
-	            <option value="1">그리스</option>
-	            <option value="2">네덜란드</option>
-	            <option value="3">노르웨이</option>
-	            <option value="4">뉴질랜드</option>
-	            <option value="5">대만</option>
-	            <option value="6">덴마크</option>
-	            <option value="7">독일</option>
-	            <option value="8">러시아</option>
-	            <option value="9">미국</option>
-	            <option value="10">벨기에</option>
-	            <option value="11">브라질</option>
-	            <option value="12">스웨덴</option>
-	            <option value="13">스위스</option>
-	            <option value="14">스페인</option>
-	            <option value="15">아일랜드</option>
-	            <option value="16">영국</option>
-	            <option value="17">오스트리아</option>
-	            <option value="18">이탈리아</option>
-	            <option value="19">인도</option>
-	            <option value="20">일본</option>
-	            <option value="21">중국</option>
-	            <option value="22">체코</option>
-	            <option value="23">캄보디아</option>
-	            <option value="24">캐나다</option>
-	            <option value="25">페루</option>
-	            <option value="26">폴란드</option>
-	            <option value="27">프랑스</option>
-	            <option value="28">필란드</option>
-	            <option value="29">한국</option>
-	            <option value="30">호주</option>
-	            <option value="31">홍콩</option>
+	            <option value="그리스">그리스</option>
+	            <option value="네털란드">네덜란드</option>
+	            <option value="노르웨이">노르웨이</option>
+	            <option value="뉴질랜드">뉴질랜드</option>
+	            <option value="대만">대만</option>
+	            <option value="덴마크">덴마크</option>
+	            <option value="독일">독일</option>
+	            <option value="러시아">러시아</option>
+	            <option value="미국">미국</option>
+	            <option value="벨기에">벨기에</option>
+	            <option value="브라질">브라질</option>
+	            <option value="스웨덴">스웨덴</option>
+	            <option value="스위스">스위스</option>
+	            <option value="스페인">스페인</option>
+	            <option value="아일랜드">아일랜드</option>
+	            <option value="영국">영국</option>
+	            <option value="오스트리아">오스트리아</option>
+	            <option value="이탈리아">이탈리아</option>
+	            <option value="인도">인도</option>
+	            <option value="일본">일본</option>
+	            <option value="중국">중국</option>
+	            <option value="체코">체코</option>
+	            <option value="캄보디아">캄보디아</option>
+	            <option value="캐나다">캐나다</option>
+	            <option value="페루">페루</option>
+	            <option value="폴란드">폴란드</option>
+	            <option value="프랑스">프랑스</option>
+	            <option value="필란드">필란드</option>
+	            <option value="한국">한국</option>
+	            <option value="호주">호주</option>
+	            <option value="홍콩">홍콩</option>
 	    	</select>
 		</div>
 		
@@ -260,27 +261,27 @@ button:hover{
 		<div class="selectBox">
 			 <p class="division2">장르</p>
 			 <select class="test" multiple="multiple" id="genre" name="mo_genre">
-	            <option value="1">가족</option>
-	            <option value="2">공포</option>
-	            <option value="3">누아르</option>
-	            <option value="4">다큐멘터리</option>
-	            <option value="5">드라마</option>
-	            <option value="6">로맨스</option>
-	            <option value="7">로맨틱 코미디</option>
-	            <option value="8">모험</option>
-	            <option value="9">뮤지컬</option>
-	            <option value="10">미스터리</option>
-	            <option value="11">범죄</option>
-	            <option value="12">스릴러</option>
-	            <option value="13">스포츠</option>
-	            <option value="14">역사</option>
-	            <option value="15">애니메이션</option>
-	            <option value="16">액션</option>
-	            <option value="17">재난</option>
-	            <option value="18">청춘</option>
-	            <option value="19">코미디</option>
-	            <option value="20">판타지</option>
-	            <option value="21">SF</option>
+	            <option value="가족">가족</option>
+	            <option value="공포">공포</option>
+	            <option value="누아르">누아르</option>
+	            <option value="다큐멘터리">다큐멘터리</option>
+	            <option value="드라마">드라마</option>
+	            <option value="로멘스">로맨스</option>
+	            <option value="로맨틱">로맨틱 코미디</option>
+	            <option value="모험">모험</option>
+	            <option value="뮤지컬">뮤지컬</option>
+	            <option value="미스터리">미스터리</option>
+	            <option value="범죄">범죄</option>
+	            <option value="스릴러">스릴러</option>
+	            <option value="스포츠">스포츠</option>
+	            <option value="역사">역사</option>
+	            <option value="애니메이션">애니메이션</option>
+	            <option value="액션">액션</option>
+	            <option value="재난">재난</option>
+	            <option value="청춘">청춘</option>
+	            <option value="코미디">코미디</option>
+	            <option value="판타지">판타지</option>
+	            <option value="SF">SF</option>
 	    </select>
 		</div><br>
 		
@@ -311,7 +312,7 @@ button:hover{
 		<!-- 파일 업로드 -->
 		<div id="fileUp">
 			<p class="division4">첨부 파일</p>
-			 <input multiple="true" type="file" id="mo_photo" name="mo_photo" style="margin: 4px -36px 9px -35px;"><br>
+			 <input multiple="multiple" type="file" id="mo_photo" name="mo_photo" style="margin: 4px -36px 9px -35px;"><br>
 	         <input type="hidden" id="fileCheck" name="fileCheck" value="0">
 		</div>
 		<div id="btn-all">
@@ -394,25 +395,7 @@ $('#upload').click(function(){
 		      alert("첨부파일을 입력해주세요.");
 		      photo.foucs();
 		      return false;
-	
-		}else{
-			var formData= new formData($('#fileForm')[0]);
-			
-			$.ajax({
-				type: 'post',
-				enctype: 'multipart/form-data',
-				url: '/board/rest/managermode/movieregistration',
-				data: formData,
-				processData: false,
-				contentType: false,
-				success: function(data){
-					console.log(data);
-				},
-				error: function(err){
-					console.log(err);
-				}
-			})
-	}
+		}
 });
 </script>
 </html>

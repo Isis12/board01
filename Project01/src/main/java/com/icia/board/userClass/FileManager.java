@@ -28,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class FileManager {
 
-	String fullPath = "D:/spring work/Project01/";
+	String fullPath = "D:/spring work/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/Project01/";
 
 	public String fileUp(MultipartHttpServletRequest multi) {
 		System.out.println("fileUp");

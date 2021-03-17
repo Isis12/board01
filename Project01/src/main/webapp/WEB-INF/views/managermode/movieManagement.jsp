@@ -61,10 +61,7 @@ th{
     height: 50px;
 }
 tr:hover{
-    background-color:#DFDFE7;
-}
-tr:nth-child(even){
-    background-color: #f2f2f2;
+    background-color:#EBF0F7;
 }
 td{
 	vertical-align: bottom;
@@ -84,8 +81,8 @@ td{
 			<thead id="top">
 				<tr>
 					<th><input type="checkbox"></th>
-					<th colspan="5">썸네일</th>
-					<th colspan="5">이름</th>
+					<th>사진</th>
+					<th>이름</th>
 					<th>국가</th>
 					<th>장르</th>
 					<th>등록 날짜</th>
@@ -108,8 +105,8 @@ $(document).ready(function(){
 			var str="";
 			for(var i in data.mList){
 				str+="<tr><td><input type='checkbox'></td>";
-				str+="<td colspan='5'>"+data.mList[i].mo_photo+"</td>";
-				str+="<td colspan='5'>"+data.mList[i].mo_title+"</td>";
+				str+="<td><img style='width:120px; height:90px;'src='/board/upload/"+data.mList[i].mo_photo+"'></td>";
+				str+="<td>"+data.mList[i].mo_title+"</td>";
 				str+="<td>"+data.mList[i].mo_country+"</td>";
 				str+="<td>"+data.mList[i].mo_genre+"</td>";
 				str+="<td>"+data.mList[i].mo_date+"</td></tr>";

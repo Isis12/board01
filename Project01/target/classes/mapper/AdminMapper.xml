@@ -8,7 +8,7 @@
 	</select>
 	
 	<insert id="mregistration" parameterType="Movie">
-		INSERT INTO MOVIE VALUES(M_SEQ.NEXTVAL, #{mo_title}, #{mo_day}, #{mo_perfomer}, #{mo_director}, #{mo_time}, #{mo_genre}, #{mo_country}, #{mo_grade}, #{mo_basic}, DEFAULT, #{mo_mo_photo}, #{mo_orititle})
+		INSERT INTO MOVIE VALUES(M_SEQ.NEXTVAL, #{mo_title}, #{mo_day}, #{mo_perfomer}, #{mo_director}, #{mo_time}, #{mo_genre}, #{mo_country}, #{mo_grade}, #{mo_basic}, DEFAULT, #{mo_photo}, #{mo_orititle})
 	</insert>
 	
 	<select id="getMovieList" resultType="Movie" >
