@@ -330,7 +330,7 @@ button:hover{
 
 $(document).ready(function(){
 	$("#close-btn").click(function(){
-		alert("이 사이트를 나가시겠습니까? \n변경사항이 저장되지 않을 수 있습니다.");
+		alert("이 사이트를 나가시겠습니까? \n\n변경사항이 저장되지 않을 수 있습니다.");
 		window.close();
 	});
 });

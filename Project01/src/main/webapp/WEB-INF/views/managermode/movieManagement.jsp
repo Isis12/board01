@@ -34,6 +34,9 @@
 #head {
 	margin-top: 50px;
 }
+table,th,td{
+	border: 1px solid black;
+}
 
 table {
 	width: 80%;
@@ -42,12 +45,29 @@ table {
 	text-align: center;
 	margin-left: 75px;
 	position: fixed;
-	margin-top: 43px;
+	margin-top: 50px;
 }
 
 th, td {
-	border-bottom: 1px solid #444444;
-	padding: 10px;
+	border: 1px solid white;
+	border-bottom: 1px solid #ddd;
+	padding: 15px;
+	text-align: center;
+}
+
+th{
+	background-color: #EBECF1;
+    color: #7A7676;
+    height: 50px;
+}
+tr:hover{
+    background-color:#DFDFE7;
+}
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+td{
+	vertical-align: bottom;
 }
 
 </style>
@@ -63,19 +83,43 @@ th, td {
 		<table>
 			<thead id="top">
 				<tr>
-					<td><input type="checkbox"></td>
-					<td>썸네일</td>
-					<td>이름</td>
-					<td>국가</td>
-					<td>장르</td>
-					<td>등록 날짜</td>
+					<th><input type="checkbox"></th>
+					<th colspan="5">썸네일</th>
+					<th colspan="5">이름</th>
+					<th>국가</th>
+					<th>장르</th>
+					<th>등록 날짜</th>
 				</tr>
 			</thead>
 				<tbody id="tbody">
-					</tr>
 				</tbody>
 		</table>
 	</div>
 </div>
 </body>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.ajax({
+		url: '/board/rest/managermode/movielist',
+		type: 'get',
+		dataType: 'json',
+		success: function(data){
+			//console.log(data);
+			var str="";
+			for(var i in data.mList){
+				str+="<tr><td><input type='checkbox'></td>";
+				str+="<td colspan='5'>"+data.mList[i].mo_photo+"</td>";
+				str+="<td colspan='5'>"+data.mList[i].mo_title+"</td>";
+				str+="<td>"+data.mList[i].mo_country+"</td>";
+				str+="<td>"+data.mList[i].mo_genre+"</td>";
+				str+="<td>"+data.mList[i].mo_date+"</td></tr>";
+			}
+			$("#tbody").html(str);
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+});
+</script>
 </html>

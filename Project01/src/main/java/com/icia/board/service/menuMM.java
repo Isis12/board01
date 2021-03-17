@@ -22,22 +22,6 @@ public class menuMM {
 	FileManager fm;
 	
 	ModelAndView mav;
-	
-	public ModelAndView movieList(Movie mo) {
-		mav= new ModelAndView();
-		String view= null;
-		List<Movie>mList=null;
-		
-		mList=mgDao.getMovieList();
-		if(mList!=null) {
-			mav.addObject("mList", mList);
-			view="/managermode/movieManagement";
-		}else {
-			view="/managermode/movieManagement";
-		}
-		mav.setViewName(view);
-		return mav;
-	}
 
 	public ModelAndView movieRegistration(MultipartHttpServletRequest multi) {
 		mav = new ModelAndView();
@@ -77,6 +61,20 @@ public class menuMM {
 		}
 		mav.setViewName(view);
 		return mav;
+	}
+
+
+	public Map<String, List<Movie>> movieList() {
+		Map<String, List<Movie>>mMap=null;
+		List<Movie>mList= mgDao.getMovieList();
+		if(mList!=null) {
+			mMap= new HashMap<>();
+			mMap.put("mList", mList);
+			System.out.println("mList="+mList);
+		}else {
+			mMap=null;
+		}
+		return mMap;
 	}
 
 
