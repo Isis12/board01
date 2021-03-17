@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IBoardDao 전용 Mapper: 게시판관련 sql -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.icia.board.dao.IBoardDao">
+	<select id="getBoardList" parameterType="int" resultType="board">
+		<!-- <![CDATA[
+		SELECT * FROM BLIST WHERE RNUM>=#{pageNum}*10-9 
+			AND RNUM<=#{pageNum}*10
+		]]> -->
+		<!-- 게시글이 많을 때속도를 업하기 위해 -->
+		<!-- /*+INDEX_DESC(B PK_B_NUM)*/ : 인덱스를 타고 내림차순 검색 -->
+		<!-- 시너님 또는 원 테이블명을 쓰던지 일치해야 함. -->
+		<![CDATA[
+			SELECT * FROM (
+				SELECT /*+INDEX_DESC(B PK_B_NUM)*/ ROWNUM RN, B.*
+				FROM B
+				WHERE ROWNUM<=#{pageNum}*10
+				)
+			WHERE RN>=#{pageNum}*10-9	
+		]]>	
+	</select>
+	
+	<!-- useGeneratedKeys="true" 자동증가값을 얻을 수 있다.
+	     keyProperty="b_num"(필드명)   오라클만 생략가능, my-sql은 명시해야 함.-->
+	     
+	<insert id="boardWrite" parameterType="board" useGeneratedKeys="true" keyProperty="b_num">
+		INSERT INTO B VALUES(#{b_num},#{b_title},#{b_contents},#{b_id},DEFAULT,DEFAULT)
+		
+		<selectKey keyProperty="b_num" resultType="int" order="BEFORE">
+			SELECT B_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+	</insert>
+	
+	
+	<select id="getContents" parameterType="int" resultType="board">
+		SELECT * FROM BLIST WHERE B_NUM=#{bNum}
+	</select>
+	
+	<insert id="replyInsert" parameterType="reply">
+		INSERT INTO R   
+		VALUES(R_SEQ.NEXTVAL,#{r_bnum},#{r_contents},#{r_id},default)
+	</insert>
+	<!--bean(DTO) 필드가 Timestamp  r_date 인 경우-->
+	<select id="getReplyList" resultType="reply">
+		SELECT * FROM RLIST WHERE R_BNUM=#{r_bnum}
+	</select>
+	<!-- DTO 필드가 String r_data 이고, 원하는 날짜형식으로 변환한 경우 -->
+	<!-- <select id="getReplyList" resultType="reply">
+		SELECT  R_ID, R_CONTENTS, TO_CHAR(R_DATE, 'YYYY-MM-DD HH24:MI:SS') R_DATE
+		FROM RLIST WHERE R_BNUM=#{bNum}
+	</select> -->
+
+</mapper>
