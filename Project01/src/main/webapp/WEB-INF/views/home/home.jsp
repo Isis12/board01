@@ -27,7 +27,7 @@
   <link href="/board/css/nav.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="/board/assets/css/style.css" rel="stylesheet">
+  <link href="/board/assets/css/style2.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Tempo - v2.2.1

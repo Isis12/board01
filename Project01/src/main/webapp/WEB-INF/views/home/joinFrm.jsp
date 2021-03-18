@@ -17,7 +17,7 @@
   <link href="/board/assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="/board/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <!-- Template Main CSS File -->
-  <link href="/board/css/nav.css" rel="stylesheet">
+  <link href="/board/assets/css/style2.css" rel="stylesheet">
 
 
 <style type="text/css">
@@ -91,20 +91,22 @@ fieldset, img {
 </style>
 </head>
 <body>
-   <!-- ======= Header ======= -->
-    <header id="header">
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center">
 
       <h1 class="logo mr-auto"><a href="/board/">Tempo</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li><a href="/board/">HOME</a></li>
           <li><a href="/board/home/login">LOGIN</a></li>
           <li class="active"><a href="/board/home/joinFrm">JOIN US</a></li>
+          <li><a href="./boardlist">Q&A</a></li>
         </ul>
       </nav><!-- .nav-menu -->
-
     </div>
   </header><!-- End Header -->
 

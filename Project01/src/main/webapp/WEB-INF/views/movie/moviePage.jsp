@@ -20,14 +20,14 @@
 
   <!-- Vendor CSS Files -->
   <link href="/board/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/board/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="/boardassets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="/boardassets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="/boardassets/vendor/venobox/venobox.css" rel="stylesheet">
-  <link href="/boardassets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <!-- <link href="/board/assets/vendor/icofont/icofont.min.css" rel="stylesheet"> -->
+  <!-- <link href="/boardassets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet"> -->
+  <!-- <link href="/boardassets/vendor/remixicon/remixicon.css" rel="stylesheet"> -->
+  <!-- <link href="/boardassets/vendor/venobox/venobox.css" rel="stylesheet"> -->
+  <!-- <link href="/boardassets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet"> -->
 
   <!-- Template Main CSS File -->
-  <link href="/board/assets/css/style.css" rel="stylesheet">
+  <link href="/board/assets/css/style2.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Tempo - v2.2.1
@@ -47,7 +47,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li id="profile" style="color: #e43c5c;">${mb.m_name}님</li>
+          <li id="profile" style="color: #566F94;">${mb.m_name}님</li>
           <li><a href="/board/home/welcome">HOME</a></li>
           <li class="active"><a href="/board/movie/moviePage">영화</a></li>
           <li><a href="./tvPage">TV 프로그램</a></li>

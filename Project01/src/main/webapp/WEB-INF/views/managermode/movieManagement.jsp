@@ -27,7 +27,7 @@
 }
 
 #mUpload {
-	margin-left: 79%;
+	margin-left: 78%;
 	position: fixed;
 }
 
@@ -43,7 +43,7 @@ table {
 	border-top: 1px solid #444444;
 	border-collapse: collapse;
 	text-align: center;
-	margin-left: 75px;
+	margin-left: 70px;
 	position: fixed;
 	margin-top: 50px;
 }
@@ -51,7 +51,7 @@ table {
 th, td {
 	border: 1px solid white;
 	border-bottom: 1px solid #ddd;
-	padding: 15px 45px 15px 39px;
+	padding: 11px 45px 11px 39px;
 	text-align: center;
 }
 

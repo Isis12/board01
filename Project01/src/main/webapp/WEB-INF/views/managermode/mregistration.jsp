@@ -147,7 +147,7 @@ body{
   width: 120px;
   height: 40px;
   color: #fff;
-  background-color: #FBB1B5;
+  background-color: #6187C8;
   font-size: 16px;
   border: none;
   border-radius: 20px;
@@ -162,7 +162,7 @@ body{
   width: 120px;
   height: 40px;
   color: #fff;
-  background-color: #FBB1B5;
+  background-color: #6187C8;
   font-size: 16px;
   border: none;
   border-radius: 20px;
@@ -177,9 +177,9 @@ button:focus {
 	outline:0;
 }
 button:hover{
-	background: #FBB1B5;
+	background: #6187C8;
 	cursor: pointer;
-	box-shadow: 0 2px 4px rgb(255 0 0 / 35%);
+	box-shadow: 0 2px 4px rgb(0 79 255 / 35%);
 }
 
 #btn-all{

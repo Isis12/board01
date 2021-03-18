@@ -77,4 +77,37 @@ public class menuMM {
 		return mMap;
 	}
 
+
+	public ModelAndView movieDetail(Integer mNum) {
+		mav=new ModelAndView();
+		String view=null;
+		Movie movie = mgDao.getMovieDetail(mNum);
+		System.out.println("들어감?");
+		
+		System.out.println("movie="+movie);
+		mav.addObject("movie", movie);
+		view="/board/managermode/movieDetail";
+		mav.setViewName(view);
+		
+		return mav;
+	}
+
+
+	public ModelAndView getMovieDtail(int MO_NUM) {
+		mav= new ModelAndView();
+		String view= null;
+		int num = MO_NUM;
+		Movie movie= mgDao.getMovieDetail(num);
+		System.out.println("들어감?");
+
+		System.out.println("movie="+movie);
+		mav.addObject("movie", movie);
+		view="/managermode/movieDetail";
+		mav.setViewName(view);
+
+		return mav;
+	}
+
+
+
 }

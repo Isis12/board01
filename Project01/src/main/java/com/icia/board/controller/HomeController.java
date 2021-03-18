@@ -9,12 +9,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.icia.board.bean.Member;
+import com.icia.board.bean.Movie;
 import com.icia.board.service.MemberMM;
 import com.icia.board.service.menuMM;
 @Controller
@@ -111,17 +113,19 @@ public class HomeController {
 		return "managermode/movieManagement";
 	}
 	
-	@RequestMapping(value = "managermode/movieDetail", method = RequestMethod.GET)
-	public String movieDetail() {
-		return "managermode/movieDetail";
-	}
-	
 	//영화 등록 페이지
 	@RequestMapping(value = "managermode/mregistration", method = RequestMethod.GET)
 	public String mregistration() {
 		return "managermode/mregistration";
 	}
 
+	@RequestMapping(value = "/managermode/movieDetail", method = RequestMethod.GET)
+	public ModelAndView movieDetail(int MO_NUM) {
+		System.out.println(MO_NUM);
+		mav = me.getMovieDtail(MO_NUM);
+		return mav;
+	}
+	
 	@RequestMapping(value = "managermode/tvManagement", method = RequestMethod.GET)
 	public String tvManagement() {
 		return "managermode/tvManagement";
@@ -131,6 +135,7 @@ public class HomeController {
 	public String memberManagement() {
 		return "managermode/memberManagement";
 	}
+	
 	
 
 	

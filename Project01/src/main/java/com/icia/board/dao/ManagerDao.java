@@ -14,6 +14,9 @@ public interface ManagerDao {
 
 	boolean mregistration(Movie mo);
 
+	Movie getMovieDetail(int MO_NUM);
+
+
 
 
 
