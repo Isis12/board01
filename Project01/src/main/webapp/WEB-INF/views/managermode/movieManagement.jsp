@@ -51,7 +51,7 @@ table {
 th, td {
 	border: 1px solid white;
 	border-bottom: 1px solid #ddd;
-	padding: 15px;
+	padding: 15px 45px 15px 39px;
 	text-align: center;
 }
 
@@ -80,9 +80,8 @@ td{
 		<table>
 			<thead id="top">
 				<tr>
-					<th><input type="checkbox"></th>
-					<th>사진</th>
-					<th>이름</th>
+					<th>번호</th>
+					<th colspan="7">이름</th>
 					<th>국가</th>
 					<th>장르</th>
 					<th>등록 날짜</th>
@@ -104,9 +103,8 @@ $(document).ready(function(){
 			//console.log(data);
 			var str="";
 			for(var i in data.mList){
-				str+="<tr><td><input type='checkbox'></td>";
-				str+="<td><img style='width:120px; height:90px;'src='/board/upload/"+data.mList[i].mo_photo+"'></td>";
-				str+="<td>"+data.mList[i].mo_title+"</td>";
+				str+="<tr><td>"+data.mList[i].mo_num+"</td>";
+				str+="<td colspan='7'><a href='/board/managermode/movieDetail?MO_NUM="+data.mList[i].mo_num+"'>"+data.mList[i].mo_title+"</a></td>";
 				str+="<td>"+data.mList[i].mo_country+"</td>";
 				str+="<td>"+data.mList[i].mo_genre+"</td>";
 				str+="<td>"+data.mList[i].mo_date+"</td></tr>";
@@ -118,5 +116,6 @@ $(document).ready(function(){
 		}
 	});
 });
+
 </script>
 </html>

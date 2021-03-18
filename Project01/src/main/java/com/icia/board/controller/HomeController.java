@@ -14,15 +14,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.databind.deser.DataFormatReaders.Match;
 import com.icia.board.bean.Member;
 import com.icia.board.service.MemberMM;
+import com.icia.board.service.menuMM;
 @Controller
 public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);	
 	
 	@Autowired
 	private MemberMM mm;//new MemberMM();
+	private menuMM me;
 	
 	ModelAndView mav;
 	
@@ -108,6 +109,11 @@ public class HomeController {
 	@RequestMapping(value = "managermode/movieManagement", method = RequestMethod.GET)
 	public String movieManagement() {
 		return "managermode/movieManagement";
+	}
+	
+	@RequestMapping(value = "managermode/movieDetail", method = RequestMethod.GET)
+	public String movieDetail() {
+		return "managermode/movieDetail";
 	}
 	
 	//영화 등록 페이지

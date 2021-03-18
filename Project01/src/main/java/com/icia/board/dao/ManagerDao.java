@@ -2,6 +2,7 @@ package com.icia.board.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 
 import com.icia.board.bean.Movie;
@@ -12,6 +13,9 @@ public interface ManagerDao {
 	List<Movie> getMovieList();
 
 	boolean mregistration(Movie mo);
+
+
+
 
 
 

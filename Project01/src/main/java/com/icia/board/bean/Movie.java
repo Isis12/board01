@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
 @Alias("movie")
 @Data
 public class Movie {
-	private String mo_code;
+	private int mo_num;
 	private String mo_title;
 	private String mo_day;
 	private String mo_perfomer;

@@ -186,6 +186,9 @@ button:hover{
   margin-left: 15px;
 }
 </style>
+<script type="text/javascript">
+	
+</script>
 <body>
 ${msg}
 <form id="fileForm" action="/board/rest/managermode/movieregistration" method="post" enctype="multipart/form-data">
@@ -317,7 +320,7 @@ ${msg}
 		</div>
 		<div id="btn-all">
 			<button class="btn" id="upload">업로드</button>
-			<button id="close-btn">취소</button>
+			<button id="close-btn" onclick="closeCheck()">취소</button>
 		</div>
 	</div>
 </form>   

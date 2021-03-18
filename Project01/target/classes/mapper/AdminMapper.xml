@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.icia.board.dao.ManagerDao">
-	<select id="getMovielist" resultType="Movie">
+	<select id="getMovieList" resultType="Movie">
 		SELECT * FROM MOVIE
 	</select>
 	
@@ -11,7 +11,4 @@
 		INSERT INTO MOVIE VALUES(M_SEQ.NEXTVAL, #{mo_title}, #{mo_day}, #{mo_perfomer}, #{mo_director}, #{mo_time}, #{mo_genre}, #{mo_country}, #{mo_grade}, #{mo_basic}, DEFAULT, #{mo_photo}, #{mo_orititle})
 	</insert>
 	
-	<select id="getMovieList" resultType="Movie" >
-		SELECT * FROM MOVIE
-	</select>
 </mapper>

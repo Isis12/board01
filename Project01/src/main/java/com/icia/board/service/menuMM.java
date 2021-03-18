@@ -1,6 +1,5 @@
 package com.icia.board.service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +28,6 @@ public class menuMM {
 		
 		Movie mo = new Movie();
 		
-		String code= multi.getParameter("mo_code");
 		String name= multi.getParameter("mo_title");
 		String day= multi.getParameter("mo_day");
 		String perfomer= multi.getParameter("mo_perfomer");
@@ -40,8 +38,8 @@ public class menuMM {
 		String grade= multi.getParameter("mo_grade");
 		String basic= multi.getParameter("mo_basic");
 		String title= multi.getParameter("mo_orititle");
-		mo.setMo_basic(basic).setMo_code(code).setMo_country(country).setMo_day(day).setMo_director(director).setMo_genre(genre).setMo_grade(grade).setMo_orititle(title).setMo_perfomer(perfomer).setMo_time(time).setMo_title(name);
-		System.out.println(code);
+		mo.setMo_basic(basic).setMo_country(country).setMo_day(day).setMo_director(director).setMo_genre(genre).setMo_grade(grade).setMo_orititle(title).setMo_perfomer(perfomer).setMo_time(time).setMo_title(name);
+		System.out.println(title);
 		
 		FileManager fm = new FileManager();
 		String file = fm.fileUp(multi);
@@ -78,10 +76,5 @@ public class menuMM {
 		}
 		return mMap;
 	}
-
-
-
-
-
 
 }
