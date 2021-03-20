@@ -7,8 +7,6 @@
   <!-- Favicons -->
   <link href="/baord/assets/img/favicon.png" rel="icon">
   <link href="/board/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
    <!-- Vendor CSS Files -->
   <link href="/board/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="/board/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -18,7 +16,7 @@
   <link href="/board/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="/board/assets/css/style2.css" rel="stylesheet">
-
+</head>
 
 <style type="text/css">
 #header{
@@ -89,7 +87,7 @@ fieldset, img {
 	margin-left: 16px;
 }
 </style>
-</head>
+
 <body>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top header-inner-pages">
@@ -260,18 +258,23 @@ fieldset, img {
 	$("#joinId").blur(function(){
 		var joinId =$("#joinId").val();
 		var idJ = /^[a-z0-9]{4,12}$/;
+		
+		console.log(joinId);
 		$.ajax({
 			type: 'get',
-			url: '${pageContext.request.contextPath}/dupleID?joinId='+joinId,
+			//contentType:'application / x - www - form - urlencoded',
+			url: '/board/home/dupleID',
+			data:{m_id:joinId},
+			dataType: 'text',
 			success: function(data){
-				console.log("1=중복, 0=중복x"+data);
+			console.log("1=중복, 0=중복x"+data);
 				
 				if(data==1){
 					//1: 아이디 중복
 					$("#dupleID").text("사용중인 아이디입니다.");
 					$("#dupleID").css("color", "#DD2743");
 					$("#submit_btn").attr("disabled", true);
-				}else{
+				}else{	
 					if(idJ.test(joinId)){
 						//0: 아이디 길이 / 문자열 검사
 						$("#dupleID").text("");

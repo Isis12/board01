@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.icia.board.bean.Member;
@@ -68,8 +69,11 @@ public class HomeController {
 	
 	//아이디 중복 검사
 	@RequestMapping(value = "home/dupleID", method = RequestMethod.GET)
-	public String getDupleID(@RequestParam("joinId") String m_id)  {
+	@ResponseBody
+	public String getDupleID(String m_id)  {
+		System.out.println("m_id"+m_id);
 		String result = mm.getDupleID(m_id);
+		System.out.println("result"+result);
 		return result;
 	}
 	
@@ -120,6 +124,7 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/managermode/movieDetail", method = RequestMethod.GET)
+	@ResponseBody
 	public ModelAndView movieDetail(int MO_NUM) {
 		System.out.println(MO_NUM);
 		mav = me.getMovieDtail(MO_NUM);

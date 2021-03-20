@@ -26,7 +26,6 @@ public class ManagermodeRestController {
 	
 	@PostMapping(value = "/managermode/movieregistration", produces= "application/json;charest=utf-8" )
 	public ModelAndView pregistration(MultipartHttpServletRequest multi) {
-		System.out.println("씨발22222222");
 		mav= me.movieRegistration(multi);
 		System.out.println("들어가라");
 		return mav;
@@ -34,7 +33,6 @@ public class ManagermodeRestController {
 	
 	@GetMapping(value = "/managermode/movielist", produces= "application/json;charest=utf-8" )
 	public Map<String, List<Movie>> movieList() {
-		System.out.println("씨발3333333");
 		Map<String, List<Movie>> mMap= me.movieList();
 		System.out.println("여기는 들어가냐??");
 		return mMap;

@@ -15,6 +15,7 @@ public interface IMemberDao {
 	
 	@Select("SELECT COUNT(*) FROM MEMBER WHERE M_ID=#{m_id}")
 	public int getDupID(String m_id);
+
 	
 }
 
