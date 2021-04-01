@@ -1,5 +1,6 @@
 package com.icia.board.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
@@ -10,11 +11,18 @@ import com.icia.board.bean.Movie;
 @Component
 public interface ManagerDao {
 	
-	List<Movie> getMovieList();
-
 	boolean mregistration(Movie mo);
+	
+	ArrayList<Movie> getMovieList(Integer pageNum);
+	
+	@Select("SELECT COUNT(*) FROM MOVIE")
+	int getMovieCount();
+	
+	Movie getContents(int num);
+	
 
-	Movie getMovieDetail(int MO_NUM);
+
+	
 
 
 
