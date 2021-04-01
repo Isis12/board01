@@ -1,5 +1,6 @@
 package com.icia.board.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,9 +10,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
 import com.icia.board.bean.Movie;
 import com.icia.board.dao.ManagerDao;
 import com.icia.board.userClass.FileManager;
+import com.icia.board.userClass.Paging;
 
 @Component
 public class menuMM {
@@ -51,62 +54,64 @@ public class menuMM {
 		
 		if(result) {
 			view= "/managermode/mregistration";
-			mav.addObject("msg","등록이 완료되었습니다.");
+			mav.addObject("msg","성공적으로 등록되었습니다..");
 			System.out.println("성공");
 			
 		}else {
 			view= "/managermode/mregistration";
 			mav.addObject("msg","등록이 실패하였습니다.");
-			System.out.println("씨발");
+			System.out.println("실패");
+		}
+		mav.setViewName(view);
+		return mav;
+	}
+	
+	//게시판 이동시 목록 출력
+	public ModelAndView getMovieList(Integer pageNum) {
+		System.out.println("pageNum="+pageNum);
+		mav=new ModelAndView();
+		String view= null;
+		ArrayList<Movie>mList=null;
+		pageNum=(pageNum==null)?1:pageNum;
+		if(pageNum<=0) {
+			System.out.println("잘못된 페이지 번호");
+		}
+		mList=mgDao.getMovieList(pageNum);
+		if(mList!=null && mList.size()!=0) {
+			System.out.println("들어가는거지??");
+			Gson gson=new Gson();
+			String json=gson.toJson(mList);
+			mav.addObject("mList", json);
+			mav.addObject("paging", getPaging(pageNum));
+			view="/managermode/movieManagement";
 		}
 		mav.setViewName(view);
 		return mav;
 	}
 
-
-	public Map<String, List<Movie>> movieList() {
-		Map<String, List<Movie>>mMap=null;
-		List<Movie>mList= mgDao.getMovieList();
-		if(mList!=null) {
-			mMap= new HashMap<>();
-			mMap.put("mList", mList);
-			System.out.println("mList="+mList);
-		}else {
-			mMap=null;
-		}
-		return mMap;
+	private Object getPaging(Integer pageNum) {
+		int maxNum= mgDao.getMovieCount();
+		int listCount=10;
+		int pageCount=5;
+		String boardName="/board/managemode/movieManagement";
+		Paging paging= new Paging(maxNum, pageNum, listCount, pageCount, boardName);
+		return paging.makeHtmlPaging();
 	}
 
-
-	public ModelAndView movieDetail(Integer mNum) {
+	public ModelAndView movieDetail(int MO_NUM) {
 		mav=new ModelAndView();
 		String view=null;
-		Movie movie = mgDao.getMovieDetail(mNum);
-		System.out.println("들어감?");
+		int num=MO_NUM;
+		Movie movie=mgDao.getContents(num);
+		System.out.println("들어갔을까?");
 		
 		System.out.println("movie="+movie);
-		mav.addObject("movie", movie);
-		view="/board/managermode/movieDetail";
+		mav.addObject("mo", movie);
+		view="/managermode/movieContents";
 		mav.setViewName(view);
-		
 		return mav;
 	}
 
-
-	public ModelAndView getMovieDtail(int MO_NUM) {
-		mav= new ModelAndView();
-		String view= null;
-		int num = MO_NUM;
-		Movie movie= mgDao.getMovieDetail(num);
-		System.out.println("들어감?");
-
-		System.out.println("movie="+movie);
-		mav.addObject("movie", movie);
-		view="/managermode/movieDetail";
-		mav.setViewName(view);
-
-		return mav;
-	}
 
 
 

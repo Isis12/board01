@@ -6,8 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -31,7 +30,7 @@
 	position: fixed;
 }
 
-#head {
+#logo {
 	margin-top: 50px;
 }
 table,th,td{
@@ -69,53 +68,45 @@ td{
 
 </style>
 <body>
-<div id="all-div">
-	<div id="head">
+<div id="header">
+	<div id="logo">
 		<h1 class="h3 mb-0 text-gray-800" id="title">MOVIE</h1>
    		<a href="#" id="mUpload" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" 
    		   onclick="window.open('/board/managermode/mregistration','PopupWin','width=1000,height=800 left=450 top=115 scrollbars=yes, toolbar=no, menubar=no, location=no')">
    			<i class="fas fa-download fa-sm text-white-50"></i> 영화 등록</a>
 	</div>
-	<div id=table>
-		<table>
-			<thead id="top">
+	<div class="center">
+	<form action="movieManagement">
+		<div class="a">
+			<table class="List">
+				<thead>
 				<tr>
-					<th>번호</th>
-					<th colspan="7">이름</th>
-					<th>국가</th>
-					<th>장르</th>
-					<th>등록 날짜</th>
+					<th style="width: 100px;">번호</th>
+					<th style="width: 400px;">이름</th>
+					<th style="width: 200px;">국가</th>
+					<th style="width: 200px;">장르</th>
+					<th style="width: 200px;">등록 날짜</th>
 				</tr>
-			</thead>
-				<tbody id="tbody">
-				</tbody>
-		</table>
+				</thead>
+				<tbody id="tbody"></tbody>
+			</table>
+		</div>
+		</form>
 	</div>
 </div>
+ 
 </body>
 <script type="text/javascript">
-$(document).ready(function(){
-	$.ajax({
-		url: '/board/rest/managermode/movielist',
-		type: 'get',
-		dataType: 'json',
-		success: function(data){
-			//console.log(data);
-			var str="";
-			for(var i in data.mList){
-				str+="<tr><td>"+data.mList[i].mo_num+"</td>";
-				str+="<td colspan='7'><a href='/board/managermode/movieDetail?MO_NUM="+data.mList[i].mo_num+"'>"+data.mList[i].mo_title+"</a></td>";
-				str+="<td>"+data.mList[i].mo_country+"</td>";
-				str+="<td>"+data.mList[i].mo_genre+"</td>";
-				str+="<td>"+data.mList[i].mo_date+"</td></tr>";
-			}
-			$("#tbody").html(str);
-		},
-		error: function(err){
-			console.log(err);
-		}
-	});
-});
-
+	var mList=${mList};
+	var str="";
+	for(var i=0; i<mList.length; i++){
+		str+="<tr><td>"+mList[i].mo_num+"</td>";
+		str+="<td><a style='text-decoration: none; color: #858796;' href='/board/managermode/movieContents?MO_NUM="+mList[i].mo_num+"'>"+mList[i].mo_title+"</a></td>";
+		str+="<td>"+mList[i].mo_country+"</td>";
+		str+="<td>"+mList[i].mo_genre+"</td>";
+		str+="<td>"+mList[i].mo_date+"</td></tr>";
+	}
+	$("#tbody").append(str);
+	console.log(mList);
 </script>
 </html>

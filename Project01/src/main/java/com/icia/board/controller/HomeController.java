@@ -24,11 +24,12 @@ import com.icia.board.service.menuMM;
 public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);	
 	
+	ModelAndView mav;
+	
 	@Autowired
 	private MemberMM mm;//new MemberMM();
+	@Autowired
 	private menuMM me;
-	
-	ModelAndView mav;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
@@ -52,7 +53,7 @@ public class HomeController {
 		return "home/joinFrm";
 	}
 	
-	//비밀번호 유효성 검사
+	//��й�ȣ ��ȿ���˻�
 	@RequestMapping(value = "home/pwCheck", method = RequestMethod.POST)
 	public boolean pwCheck(String m_pw) {
 		boolean check = false;
@@ -67,7 +68,7 @@ public class HomeController {
 		return check;
 	}
 	
-	//아이디 중복 검사
+	//ID�ߺ� �˻�
 	@RequestMapping(value = "home/dupleID", method = RequestMethod.GET)
 	@ResponseBody
 	public String getDupleID(String m_id)  {
@@ -80,7 +81,7 @@ public class HomeController {
 	@RequestMapping(value = "home/join", method = RequestMethod.POST)
 	public ModelAndView join(Member member) {
 		mav =mm.join(member);
-		System.out.println("회원가입 성공??");
+		System.out.println("��??");
 		return mav;
 	}
 	
@@ -106,37 +107,37 @@ public class HomeController {
 		return "tvPage";
 	}
 
-	//admin 페이지
-	@RequestMapping(value = "managermode/managerPage", method = RequestMethod.GET)
+	//admin
+	@RequestMapping(value = "/managermode/managerPage", method = RequestMethod.GET)
 	public String adminPage() {
 		return "managermode/managerPage";
 	}
 	
-	@RequestMapping(value = "managermode/movieManagement", method = RequestMethod.GET)
-	public String movieManagement() {
-		return "managermode/movieManagement";
+	@RequestMapping(value = "/managermode/movieManagement", method = RequestMethod.GET)
+	public ModelAndView movieManagement(Integer pageNum) {
+		mav =me.getMovieList(pageNum);
+		return mav;
 	}
 	
-	//영화 등록 페이지
-	@RequestMapping(value = "managermode/mregistration", method = RequestMethod.GET)
+	@RequestMapping(value = "/managermode/movieContents", method = RequestMethod.GET)
+	public ModelAndView movieContents(int MO_NUM) {
+		mav =me.movieDetail(MO_NUM);
+		return mav;
+	}
+	
+	//��ȭ ���
+	@RequestMapping(value = "/managermode/mregistration", method = RequestMethod.GET)
 	public String mregistration() {
 		return "managermode/mregistration";
 	}
 
-	@RequestMapping(value = "/managermode/movieDetail", method = RequestMethod.GET)
-	@ResponseBody
-	public ModelAndView movieDetail(int MO_NUM) {
-		System.out.println(MO_NUM);
-		mav = me.getMovieDtail(MO_NUM);
-		return mav;
-	}
 	
-	@RequestMapping(value = "managermode/tvManagement", method = RequestMethod.GET)
+	@RequestMapping(value = "/managermode/tvManagement", method = RequestMethod.GET)
 	public String tvManagement() {
 		return "managermode/tvManagement";
 	}
 	
-	@RequestMapping(value = "managermode/memberManagement", method = RequestMethod.GET)
+	@RequestMapping(value = "/managermode/memberManagement", method = RequestMethod.GET)
 	public String memberManagement() {
 		return "managermode/memberManagement";
 	}

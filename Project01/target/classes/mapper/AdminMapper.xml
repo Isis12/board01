@@ -3,16 +3,22 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.icia.board.dao.ManagerDao">
-	<select id="getMovieList" resultType="Movie">
-		SELECT * FROM MOVIE
+	<select id="getMovieList" parameterType="int" resultType="Movie">
+		<![CDATA[
+			SELECT * FROM (
+				SELECT /*+INDEX_DESC(MOVIE MO_NUM_PK)*/ROWNUM RN, MOVIE.*
+				FROM MOVIE
+				WHERE ROWNUM<=#{pageNum}*10)
+			WHERE RN>=#{pageNum}*10-9
+		]]>
 	</select>
 	
 	<insert id="mregistration" parameterType="Movie">
 		INSERT INTO MOVIE VALUES(M_SEQ.NEXTVAL, #{mo_title}, #{mo_day}, #{mo_perfomer}, #{mo_director}, #{mo_time}, #{mo_genre}, #{mo_country}, #{mo_grade}, #{mo_basic}, DEFAULT, #{mo_photo}, #{mo_orititle})
 	</insert>
 	
-   <select id="getMovieDetail" parameterType="int" resultType="movie">
-            SELECT * FROM MOVIE WHERE MO_NUM = #{mo_num}
-   </select>
+	<select id="getContents" parameterType="int" resultType="Movie">
+		SELECT * FROM MOVIE WHERE MO_NUM=#{mo_num}
+	</select>
 	
 </mapper>
