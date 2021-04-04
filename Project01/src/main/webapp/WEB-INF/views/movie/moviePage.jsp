@@ -50,7 +50,6 @@
           <li id="profile" style="color: #566F94;">${mb.m_name}님</li>
           <li><a href="/board/home/welcome">HOME</a></li>
           <li class="active"><a href="/board/movie/moviePage">영화</a></li>
-          <li><a href="./tvPage">TV 프로그램</a></li>
           <li><a href="./boardlist">Q&A</a></li>
           	<c:choose>
           		<c:when test="${id!=null and id eq 'admin'}">

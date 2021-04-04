@@ -53,7 +53,6 @@
                         <h6 class="collapse-header">Contents:</h6>
                         <a class="collapse-item" href="/board/home/welcome">HOME</a>
                         <a class="collapse-item" href="/board/movie/moviePage">영화</a>
-                        <a class="collapse-item" href="cards.html">TV 프로그램</a>
                         <a class="collapse-item" href="cards.html">Q&A</a>
                     </div>
                 </div>
@@ -67,13 +66,6 @@
                 <a class="nav-link" href="#" id="movieManagement">
                     <i class="fas fa-fw fa-table"></i>
                     <span>영화</span></a>
-            </li>
-            
-            <!-- TV 프로그램 -->
-            <li class="nav-item">
-                <a class="nav-link" href="#" id="tvManagement">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>TV 프로그램</span></a>
             </li>
             
             <!-- 회원관리 -->
@@ -169,10 +161,6 @@
                                 <a class="dropdown-item" href="/board/movie/moviePage">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                                                                  영화
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    TV 프로그램
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -274,20 +262,6 @@ $("#movieManagement").click(function(){
 	      dataType: 'html',
 	      success: function(data){
 	         $('#main-text').html(data);
-	      },
-	      error: function(err){
-	         console.log(err);
-	      }
-	  });
-	});
-
-	$("#tvManagement").click(function(){
-	  $.ajax({
-	      type:'get',
-	      url:'/board/managermode/tvManagement',
-	      dataType: 'html',
-	      success: function(data){
-	         $("#main-text").html(data);
 	      },
 	      error: function(err){
 	         console.log(err);

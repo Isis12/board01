@@ -21,13 +21,13 @@
 <style>
 #title {
 	float: left;
-	margin-left: 80px;
-	position: fixed;
+	margin: 24px 0px 0 75px;
+/* 	position: fixed; */
 }
 
 #mUpload {
-	margin-left: 78%;
-	position: fixed;
+	margin: 24px 0 0 78%;
+/* 	position: fixed; */
 }
 
 #logo {
@@ -38,13 +38,13 @@ table,th,td{
 }
 
 table {
-	width: 80%;
+	width: 90%;
 	border-top: 1px solid #444444;
 	border-collapse: collapse;
 	text-align: center;
 	margin-left: 70px;
-	position: fixed;
-	margin-top: 50px;
+/* 	position: fixed; */
+	margin-top: 21px;
 }
 
 th, td {

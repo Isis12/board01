@@ -52,7 +52,7 @@ public class HomeController {
 		return "home/joinFrm";
 	}
 	
-	//ºñ¹Ð¹øÈ£ À¯È¿¼º°Ë»ç
+	//ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½È¿ï¿½ï¿½ï¿½Ë»ï¿½
 	@RequestMapping(value = "home/pwCheck", method = RequestMethod.POST)
 	public boolean pwCheck(String m_pw) {
 		boolean check = false;
@@ -67,7 +67,7 @@ public class HomeController {
 		return check;
 	}
 	
-	//IDÁßº¹ °Ë»ç
+	//IDï¿½ßºï¿½ ï¿½Ë»ï¿½
 	@RequestMapping(value = "home/dupleID", method = RequestMethod.GET)
 	@ResponseBody
 	public String getDupleID(String m_id)  {
@@ -80,7 +80,7 @@ public class HomeController {
 	@RequestMapping(value = "home/join", method = RequestMethod.POST)
 	public ModelAndView join(Member member) {
 		mav =mm.join(member);
-		System.out.println("µé¾î°¨??");
+		System.out.println("ï¿½ï¿½î°¨??");
 		return mav;
 	}
 	
@@ -124,18 +124,12 @@ public class HomeController {
 		return mav;
 	}
 	
-	//¿µÈ­ µî·Ï
+	//ï¿½ï¿½È­ ï¿½ï¿½ï¿½
 	@RequestMapping(value = "/managermode/mregistration", method = RequestMethod.GET)
 	public String mregistration() {
 		return "managermode/mregistration";
 	}
 
-	
-	@RequestMapping(value = "/managermode/tvManagement", method = RequestMethod.GET)
-	public String tvManagement() {
-		return "managermode/tvManagement";
-	}
-	
 	@RequestMapping(value = "/managermode/memberManagement", method = RequestMethod.GET)
 	public String memberManagement() {
 		return "managermode/memberManagement";
