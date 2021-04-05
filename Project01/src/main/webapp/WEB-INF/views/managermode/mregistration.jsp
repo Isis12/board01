@@ -78,6 +78,7 @@ body{
   font-size: 16px;
   margin: 6px 33px 0 25px;
   padding-right: 10px;
+  padding-left: 10px;
 }
 
 .division2{
@@ -106,8 +107,9 @@ body{
 
 .subheading_text{
   height: 32px;
-  width: 483px;
-  padding-left: 22px;
+  width: 493px;
+  margin-left: -2px;
+  padding-left: 10px;
   font-size: 16px;
   border: 1px solid #ddd;
 }
@@ -126,9 +128,26 @@ body{
   height: 32px;
   width: 493px;
   font-size: 16px;
-  padding-left: 15px;
+  padding-left: 10px;
   margin: 0 0 0 -17px;
   border: 1px solid #ddd;
+}
+
+.text_item3{
+	height: 32px;
+	width: 493px;
+	font-size: 16px;
+	padding-left: 10px;
+	margin: 0 0 0 -1px;
+	border: 1px solid #ddd;
+}
+.text_item4{
+	height: 32px;
+	width: 493px;
+	font-size: 16px;
+	padding-left: 10px;
+	margin: 0 0 0 -29px;
+	border: 1px solid #ddd;
 }
 
 #textarea{
@@ -222,6 +241,12 @@ ${msg}
 			<input type="text" name="mo_perfomer" id="perfomer" class="text_item2">
 		</div><br>
 		
+		<!-- 배역  -->
+		<div>
+			<p class="division">역할</p>
+			<input type="text" name="mo_role" id="role" class="text_item3">
+		</div><br>
+		
 		<!-- 국가 -->
 		<div class="selectBox" id="firstbox">
 			 <p class="division">국가</p>
@@ -302,20 +327,26 @@ ${msg}
 		
 		<!-- 평점 -->
 		<div>
-			<p class="division3">평점</p>
-			<input type="text" name="mo_grade" class="subheading_text" id="grade">
-		</div><br>
+			<p class="division">평균평점</p>
+			<input type="text" name="mo_grade" class="text_item" id="grade"  style="float: left;">
+		</div>
 		
-		<!-- 내용 -->
+		<!-- 평점 인원 -->
 		<div>
+			<p class="division3">평점인원</p>
+			<input type="text" name="mo_personnel" class="text_item" id="role">
+		</div>
+			
+		<!-- 내용 -->
+		<div style="margin-top: 23px;">
 			<p class="division">내용</p>
-			<textarea rows="25" cols="67" name="mo_basic" id="textarea"></textarea>
+			<textarea rows="25" cols="66" name="mo_basic" id="textarea"></textarea>
 		</div><br>
 		
 		<!-- 파일 업로드 -->
 		<div id="fileUp">
 			<p class="division4">첨부 파일</p>
-			 <input multiple="multiple" type="file" id="mo_photo" name="mo_photo" style="margin: 4px -36px 9px -35px;"><br>
+			 <input multiple="multiple" type="file" id="mo_photo" name="mo_photo" style="margin: 4px -36px 9px -27px;"><br>
 	         <input type="hidden" id="fileCheck" name="fileCheck" value="0">
 		</div>
 		<div id="btn-all">

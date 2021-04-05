@@ -41,7 +41,9 @@ public class menuMM {
 		String grade= multi.getParameter("mo_grade");
 		String basic= multi.getParameter("mo_basic");
 		String title= multi.getParameter("mo_orititle");
-		mo.setMo_basic(basic).setMo_country(country).setMo_day(day).setMo_director(director).setMo_genre(genre).setMo_grade(grade).setMo_orititle(title).setMo_perfomer(perfomer).setMo_time(time).setMo_title(name);
+		String role= multi.getParameter("mo_role");
+		String personnel= multi.getParameter("mo_personnel");
+		mo.setMo_basic(basic).setMo_country(country).setMo_day(day).setMo_director(director).setMo_genre(genre).setMo_grade(grade).setMo_orititle(title).setMo_perfomer(perfomer).setMo_time(time).setMo_title(name).setMo_role(role).setMo_personnel(personnel);
 		System.out.println(title);
 		
 		FileManager fm = new FileManager();

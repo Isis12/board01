@@ -18,6 +18,8 @@
   <link href="/board/assets/css/style2.css" rel="stylesheet">
 </head>
 
+<%-- <%@ include file="/WEB-INF/views/include/header.jsp" %> --%>
+
 <style type="text/css">
 #header{
 	color: #fff;
