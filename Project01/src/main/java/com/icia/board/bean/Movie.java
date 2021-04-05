@@ -17,10 +17,11 @@ public class Movie {
 	private String mo_time; //영화시간
 	private String mo_genre; //장르
 	private String mo_country; //국가
-	private String mo_grade; //평점
+	private String mo_grade; //평균평점
 	private String mo_basic; //기본정보
 	private String mo_date; //등록날짜
 	private String mo_photo; //포스터
 	private String mo_orititle; //원제
-
+	private String mo_role; //역할
+	private String mo_personnel; //평점인원
 }

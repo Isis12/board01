@@ -10,6 +10,8 @@
 <meta content="" name="description">
 <meta content="" name="keywords">
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <!-- Favicons -->
 <link href="/board/assets/img/favicon.png" rel="icon">
 <link href="/board/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -94,18 +96,18 @@ a{
 .h-title{
   font-size: 13px;
   color: #767582;
-  margin: 6% 0 0 16%;
+  margin: 14% 0 0 43%;
 }
-.main{
+.movie_header{
   margin-left: 8px;
 }
 .main_contents{
   float: left;
-  margin: 2px 2px 0 20%;
+  margin: 2px 2px 0 61%;
 }
 .m_detail{
   float: left;
-  margin: 77px 0 0px 83px;
+  margin: -32% 0 0px 112%;
 }
 input[type=text]{border-style: none;}
 
@@ -116,7 +118,6 @@ input:focus {outline:none;}
   color: rgba(0, 0, 0, 0.5);
 }
 .m_title{
-  position: fixed
   font-weight: 600;
   font-size: 31px;
   margin-left: -22px;
@@ -125,28 +126,30 @@ input:focus {outline:none;}
   color: rgba(0, 0, 0, 0.5);
   font-weight: 400;
   font-size: 15px;
-  margin: 21px -176px 0 -15px;
+  margin: 14px -176px 0 -15px;
 }
 .m_average{
   font-weight: 600;
-  margin: 15px 15px 0px -17px;
+  margin: 10px 15px 0px -17px;
 }
 #average{
   margin: 0 -179px 0 -18px;
   font-size: 17px;
 }
 .center2{
+  width: 277%;
+  height: 100%;
   background: #F1F0F0; 
-  margin-top: 19%;
+  margin-top: 53%;
   border-top: 1px solid #D0D3DA;
 }
 .h1{
   font-size: 21px;
   font-weight: 600;
-  margin: 28px 0 0 20%;
+  margin: 32px 0 0 20%;
 }
 .main_contents2{
-  margin: 10px 0 0 23%;
+  margin: 8px 0 0 23%;
 }
 .txt_box2{
   background: #F1F0F0;
@@ -156,13 +159,16 @@ input:focus {outline:none;}
 .m_bundle2{
   font-weight: 400;
   font-size: 16px;
-  margin: 0 -134px -0-6px;
+  margin: 6px -134px -0-6px;
 }
 #text_cover{
   margin: 10px 0 0 421px;
 }
 #text_cover2{
   margin: 10px 0 0 421px;
+}
+#text_cover3{
+  margin: 5px 0 0 421px;
 }
 .m_name{
   color: rgba(0, 0, 0, 0.5);
@@ -171,13 +177,48 @@ input:focus {outline:none;}
 .m_perfomer{
   width: 80%;
 }
+.m_role{
+  width: 80%;
+  color: #818181;
+}
+#resize{
+  margin: 8px 0 0 428px;
+}
+.textarea_size{
+  resize: none;
+  line-height: 150%;
+  width:70%;
+  overflow-y: hidden;
+  border: none;
+  background: #eee;
+  font-size: 16px;
+  font-family: "맑은 고딕";
+}
+textarea:focus {outline: none;}
+
+#button_bar{
+  float: left;
+  margin: 8px -216px 0 110%;
+}
+.btn{
+  background: #fff;
+  border: 1px solid #818181;
+  font-size: 15px;
+  color: #767582;
+  margin: 0 -59px 0px 68px;
+  width: 50px;
+  height: 29px;
+  text-align: center;
+  border-radius: 5px;
+}
+button:focus {outline: blue;}
 </style>
 <body>
 <!-- ======= Header ======= -->
  <header id="header" class="header-inner-pages fixed-top">
    <div class="container d-flex align-items-center">
      <h1 class="logo"><a href="/board/home/welcome" style="color: #493c3e">TEMPO</a></h1>
-     <nav class="nav-menu" style="margin: 28px 47% 0 0; font-size: 14px;">
+     <nav class="nav-menu" style="margin: 28px 47% 0 0; font-size: 14px; float: left;">
        <ul>
          <li><a href="/board/managermode/managerPage">뒤로가기</a></li>
          <li><span class="slash">/</span></li>
@@ -186,11 +227,11 @@ input:focus {outline:none;}
      </nav><!-- .nav-menu -->
    </div>
 </header><!-- End Header -->
-<div id="center">
+<div id="center" style="float: left;">
 	<div class="h-title"><h1 style="font-weight: 400;">영화 상세보기</h1></div>
 	
 	<!-- ========영화 header======== -->
-	<div class="main" style="margin-left:8px;">
+	<div class="movie_header">
 		<div class="main_contents">
 		<div><img style="width:100%; height:320px;" src="/board/upload/${mo.mo_photo}"></div>
 		</div>
@@ -203,7 +244,7 @@ input:focus {outline:none;}
 			<input type="text" name="mo_genre" class="txt_box m_bundle" value="${mo.mo_genre}" readonly><br>
 			<span class="m_average">평균 ★</span>
 			<input type="text" name="mo_grade" class="txt_box m_average" id="average" value="${mo.mo_grade}" readonly>
-			<input type="text" class="txt_box m_average" value="(113만명)" readonly style="font-size: 16px;">
+			<input type="text" name="mo_personnel" class="txt_box m_average" value="(${mo.mo_personnel})" readonly style="font-size: 16px;">
 		</div>
 	</div>
 	
@@ -216,26 +257,46 @@ input:focus {outline:none;}
 				<input type="text" name="mo_director" class="txt_box2" value="${mo.mo_director}" readonly><br>
 			</div>
 			<div id="text_cover2">
-				<span style="color: rgba(0, 0, 0, 0.5); margin-right: 14px;">출연진&nbsp;</span>
-				<input type="text" name="mo_perfomer" class="txt_box2 m_perfomer" value="${mo.mo_perfomer}" readonly>
+				<span style="color: rgba(0, 0, 0, 0.5); margin-right: 21px;">출연진</span>
+				<input type="text" name="mo_perfomer" class="txt_box2 m_perfomer" value="${mo.mo_perfomer}" readonly><br>
+			</div>
+			<div id="text_cover3">
+				<span style="color: rgba(0, 0, 0, 0.5); margin-right: 14px;">주/조연</span>
+				<input type="text" name="mo_role" class="txt_box2 m_role" value="${mo.mo_role}" readonly>
 			</div>
 		</div>
 		
 		<!-- ========영화 기본정보======== -->
-		<h1 class="h1">기본정보</h1>
-		<div class="main_contents2">
-			<input type="text" name="mo_orititle" class="txt_box2" value="${mo.mo_orititle}" readonly><br>
-			<input type="text" name="mo_day" class="txt_box2 m_bundle2" value="${mo.mo_day}" readonly>
-			<span style="margin-left:-30px;">・</span>
-			<input type="text" name="mo_country" class="txt_box2 m_bundle2" value="${mo.mo_country}" readonly>
-			<span style="margin-left: -34px;">・</span>
-			<input type="text" name="mo_genre" class="txt_box2 m_bundle2" value="${mo.mo_genre}" readonly><br>
-			<input type="text" name="mo_time" class="txt_box2" value="${mo.mo_time}" readonly>
+		<div>
+			<h1 class="h1">기본정보</h1>
+			<div class="main_contents2">
+				<input type="text" name="mo_orititle" class="txt_box2" value="${mo.mo_orititle}" readonly><br>
+				<input type="text" name="mo_day" class="txt_box2 m_bundle2" value="${mo.mo_day}" readonly>
+				<span style="margin-left:-30px;">・</span>
+				<input type="text" name="mo_country" class="txt_box2 m_bundle2" value="${mo.mo_country}" readonly>
+				<span style="margin-left: -34px;">・</span>
+				<input type="text" name="mo_genre" class="txt_box2 m_bundle2" value="${mo.mo_genre}" readonly><br>
+				<input type="text" name="mo_time" class="txt_box2" value="${mo.mo_time}" readonly>
+			</div>
+			<div id="resize">
+				<textarea class="textarea_size">${mo.mo_basic}</textarea>
+			</div>
+		</div><br>
+	</div>
+	<div>
+		<div id="button_bar">
+			<button class="btn">수정</button>
+			<button class="btn">삭제</button>
 		</div>
 	</div>
 </div>
 </body>
 <script type="text/javascript">
-	
+	$('document').ready(function(){
+		$('textarea').keyup(function(e){
+			$(this).css('height', 'auto');
+			$(this).height(this.scrollHeight);
+		});
+	});
 </script>
 </html>
