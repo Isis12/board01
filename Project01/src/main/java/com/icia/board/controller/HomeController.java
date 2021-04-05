@@ -124,6 +124,11 @@ public class HomeController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/managermode/movieModifyContents", method = RequestMethod.GET)
+	public String movieModifyContents() {
+		return "managermode/movieModifyContents";
+	}
+	
 	//영화 등록
 	@RequestMapping(value = "/managermode/mregistration", method = RequestMethod.GET)
 	public String mregistration() {
