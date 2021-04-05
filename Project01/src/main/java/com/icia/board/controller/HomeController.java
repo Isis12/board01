@@ -68,7 +68,7 @@ public class HomeController {
 		return check;
 	}
 	
-	//ID�ߺ� �˻�
+	//ID중복체크
 	@RequestMapping(value = "home/dupleID", method = RequestMethod.GET)
 	@ResponseBody
 	public String getDupleID(String m_id)  {
@@ -125,7 +125,7 @@ public class HomeController {
 		return mav;
 	}
 	
-	//��ȭ ���
+	//영화 등록
 	@RequestMapping(value = "/managermode/mregistration", method = RequestMethod.GET)
 	public String mregistration() {
 		return "managermode/mregistration";
