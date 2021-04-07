@@ -19,6 +19,8 @@ public interface ManagerDao {
 	int getMovieCount();
 	
 	Movie getContents(int num);
+
+	boolean deleteMovie(String num);
 	
 
 

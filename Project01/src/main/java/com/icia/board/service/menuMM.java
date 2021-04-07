@@ -114,6 +114,16 @@ public class menuMM {
 		return mav;
 	}
 
+	public String deleteMovie(String num) {
+		String value=null;
+		boolean result=mgDao.deleteMovie(num);
+		if(result) {
+			value="1";
+		}
+		return value;
+	}
+
+
 
 
 

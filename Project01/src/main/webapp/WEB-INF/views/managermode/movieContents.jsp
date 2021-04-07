@@ -24,10 +24,6 @@
 
 <title>영화 상세보기</title>
 </head>
-<style>
-.num{
-}
-</style>
 <body>
 <!-- ======= Header ======= -->
  <header id="header" class="header-inner-pages fixed-top">
@@ -45,7 +41,9 @@
 <div id="center" style="float: left;">
 	<div class="h-title">
 		<h1 style="font-weight: 400; float: left;">영화 상세보기</h1>
-		<input type="text" class="num" name="mo_num" value="(${mo.mo_num})" readonly>
+		<span class="bracket" style="margin-left: 6px;">(</span>
+		<input type="text" id="num" name="mo_num" value="${mo.mo_num}" readonly>
+		<span class="bracket" style="margin-left: -30%;">)</span>
 	</div>
 
 	<!-- ========영화 header======== -->
@@ -62,7 +60,9 @@
 			<input type="text" name="mo_genre" class="txt_box m_bundle bx-collection" value="${mo.mo_genre}" readonly><br>
 			<span class="m_average">평균 ★</span>
 			<input type="text" name="mo_grade" class="txt_box m_average bx-collection" id="average" value="${mo.mo_grade}" readonly>
-			<input type="text" name="mo_personnel" class="txt_box m_average bx-collection" value="(${mo.mo_personnel})" readonly style="font-size: 16px;">
+			<span style="margin-left: -9px; font-weight: 600;">(</span>
+			<input type="text" name="mo_personnel" class="txt_box m_average bx-collection" id="personnel" value="${mo.mo_personnel}" readonly style="font-size: 16px;">
+			<span style="margin-left: -22%; font-weight: 600;">)</span>
 		</div>
 	</div>
 	
@@ -103,8 +103,9 @@
 	</div>
 	<div>
 		<div id="button_bar">
-			<button class="btn" id="Modify_btn">수정</button>
-			<button class="btn" id="Delete_btn">삭제</button>
+			<button type="button" class="btn" id="Modify_btn">수정</button>
+			<button type="button" class="btn" id="Delete_btn">삭제</button>
+			<%-- <button class="btn" id="Delete_btn"><a href="/board/rest/managermode/deleteMovie?MO_NUM=${mo.mo_num}">삭제</a></button> --%>
 		</div>
 	</div>
 </div>
@@ -120,9 +121,32 @@
 		}
 	}).find('textarea#basic').change();
 	
-	//글 삭제
-	$('#Delete_btn').click(function(){
+	//게시글 수정
+	$('#Modify_btn').click(function(){
+		var num=$('#num').val();
 		
-	})
+	});
+	
+	
+	
+	//게시글 삭제
+	$('#Delete_btn').click(function(){
+		var num=$('#num').val();
+		$.ajax({
+			url: '/board/rest/managermode/deleteMovie',
+			type: 'post',
+			data:{num:num},
+			dataType: 'json',
+			success: function(data){
+				if(data==1){
+					alert("삭제가 완료되었습니다.");
+					location.href="/board/managermode/managerPage";
+				}
+			},
+			error: function(err){
+				console.log(err);
+			}
+		});
+	});
 </script>
 </html>

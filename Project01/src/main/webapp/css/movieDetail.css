@@ -75,10 +75,13 @@ a{
   color: #767582;
   margin: 8% 0 0 28%;
 }
-.num{
-  margin: 26px 0 0 4px;
+#num{
+  margin: 26px -2px 0 -4px;
   font-size: 19px;
   color: #818181;
+}
+.bracket{
+  font-size: 19px;
 }
 .movie_header{
   margin-left: 8px;
@@ -86,6 +89,9 @@ a{
 .main_contents{
   float: left;
   margin: 0 2px 4px 35%;
+}
+#personnel{
+  margin-left: -2px;
 }
 .m_detail{
   float: left;
@@ -129,10 +135,10 @@ input:focus {outline:none;}
 .h1{
   font-size: 21px;
   font-weight: 600;
-  margin: 34px 0 0 21%;
+  margin: 34px 0 0 23%;
 }
 .main_contents2{
-  margin: 9px 0 0 437px;
+  margin: 9px 0 0 489px;
 }
 .txt_box2{
   background: #F1F0F0;
@@ -145,13 +151,13 @@ input:focus {outline:none;}
   margin: 6px -134px -0-6px;
 }
 #text_cover{
-  margin: 10px 0 0 427px;
+  margin: 10px 0 0 480px;
 }
 #text_cover2{
-  margin: 10px 0 0 427px;
+  margin: 10px 0 0 480px;
 }
 #text_cover3{
-  margin: 5px 0 0 427px;
+  margin: 5px 0 0 480px;
 }
 .m_name{
   color: rgba(0, 0, 0, 0.5);
@@ -165,7 +171,7 @@ input:focus {outline:none;}
   color: #818181;
 }
 #resize{
-  margin: 8px 0 0 429px;
+  margin: 8px 0 0 480px;
 }
 .textarea_size{
   resize: none;
@@ -183,7 +189,7 @@ textarea:focus {outline: none;}
 
 #button_bar{
   float: left;
-  margin: 15px -240px 20px 68%;
+  margin: 15px -240px 20px 75%;
 }
 .btn{
   background: #fff;
@@ -191,13 +197,13 @@ textarea:focus {outline: none;}
   font-size: 15px;
   color: #767582;
   margin: 0 -58px 0px 63px;
-  width: 50px;
-  height: 29px;
+  width: 54px;
+  height: 32px;
   text-align: center;
   border-radius: 5px;
 }
 button:focus{outline: none;}
 button:hover{
-  border: 1px solid #353339;
+  border: 2px solid #353339;
   border-radius: 5px;
 }

@@ -21,4 +21,8 @@
 		SELECT * FROM MOVIE WHERE MO_NUM=#{mo_num}
 	</select>
 	
+	<delete id="deleteMovie" parameterType="string">
+		DELETE FROM MOVIE WHERE MO_NUM=#{num}
+	</delete>
+	
 </mapper>
