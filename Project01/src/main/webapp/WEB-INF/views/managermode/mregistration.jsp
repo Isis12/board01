@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -206,10 +205,16 @@ button:hover{
 }
 </style>
 <script type="text/javascript">
-	
+	window.onload=function(){
+		var chk='${check}';
+		if(chk=='1'){
+			alert("등록이 성공적으로 완료되었습니다.");
+		}else if(chk=='2'){
+			alert("등록이 실패하였습니다.");
+		}
+	}
 </script>
 <body>
-${msg}
 <form id="fileForm" action="/board/rest/managermode/movieregistration" method="post" enctype="multipart/form-data">
 	<div id="header">
 		<h1 id="logo">TEMPO</h1>

@@ -21,6 +21,8 @@ public interface ManagerDao {
 	Movie getContents(int num);
 
 	boolean deleteMovie(String num);
+
+	Movie getModify(String num);
 	
 
 

@@ -36,7 +36,7 @@
          <li><a href="/board/managermode/memberManagement">회원관리</a></li>
        </ul>
      </nav><!-- .nav-menu -->
-   </div>
+</div>
 </header><!-- End Header -->
 <div id="center" style="float: left;">
 	<div class="h-title">
@@ -52,16 +52,16 @@
 		<div><img style="width:100%; height:289px;" src="/board/upload/${mo.mo_photo}"></div>
 		</div>
 		<div class="main_contentes m_detail">
-			<input type="text" name="mo_title" id="movie_title" class="txt_box m_title bx-collection" value="${mo.mo_title}" readonly><br>
-			<input type="text" name="mo_day" class="txt_box m_bundle bx-collection" value="${mo.mo_day}" readonly>
+			<input type="text" name="mo_title" id="movie_title" class="txt_box m_title bx-collection" value="${mo.mo_title}"><br>
+			<input type="text" name="mo_day" class="txt_box m_bundle bx-collection" value="${mo.mo_day}">
 			<span class="m_icon" style="margin-left: 14px;">・</span>
-			<input type="text" name="mo_country" class="txt_box m_bundle bx-collection" value="${mo.mo_country}" readonly>
+			<input type="text" name="mo_country" class="txt_box m_bundle bx-collection" value="${mo.mo_country}">
 			<span class="m_icon" >・</span>
-			<input type="text" name="mo_genre" class="txt_box m_bundle bx-collection" value="${mo.mo_genre}" readonly><br>
+			<input type="text" name="mo_genre" class="txt_box m_bundle bx-collection" value="${mo.mo_genre}"><br>
 			<span class="m_average">평균 ★</span>
-			<input type="text" name="mo_grade" class="txt_box m_average bx-collection" id="average" value="${mo.mo_grade}" readonly>
+			<input type="text" name="mo_grade" class="txt_box m_average bx-collection" id="average" value="${mo.mo_grade}">
 			<span style="margin-left: -9px; font-weight: 600;">(</span>
-			<input type="text" name="mo_personnel" class="txt_box m_average bx-collection" id="personnel" value="${mo.mo_personnel}" readonly style="font-size: 16px;">
+			<input type="text" name="mo_personnel" class="txt_box m_average bx-collection" id="personnel" value="${mo.mo_personnel}" style="font-size: 16px;">
 			<span style="margin-left: -22%; font-weight: 600;">)</span>
 		</div>
 	</div>
@@ -72,15 +72,15 @@
 			<h1 class="h1">제작/출연</h1>
 			<div id="text_cover">
 				<span class="m_name">감독&nbsp;</span>
-				<input type="text" name="mo_director" class="txt_box2 bx-collection" value="${mo.mo_director}" readonly><br>
+				<input type="text" name="mo_director" class="txt_box2 bx-collection" value="${mo.mo_director}"><br>
 			</div>
 			<div id="text_cover2">
 				<span style="color: rgba(0, 0, 0, 0.5); margin-right: 21px;">출연진</span>
-				<input type="text" name="mo_perfomer" class="txt_box2 m_perfomer bx-collection" value="${mo.mo_perfomer}" readonly><br>
+				<input type="text" name="mo_perfomer" class="txt_box2 m_perfomer bx-collection" value="${mo.mo_perfomer}"><br>
 			</div>
 			<div id="text_cover3">
 				<span style="color: rgba(0, 0, 0, 0.5); margin-right: 14px;">주/조연</span>
-				<input type="text" name="mo_role" class="txt_box2 m_role bx-collection" value="${mo.mo_role}" readonly>
+				<input type="text" name="mo_role" class="txt_box2 m_role bx-collection" value="${mo.mo_role}">
 			</div>
 		</div>
 		
@@ -88,13 +88,13 @@
 		<div>
 			<h1 class="h1">기본정보</h1>
 			<div class="main_contents2">
-				<input type="text" name="mo_orititle" class="txt_box2 bx-collection" value="${mo.mo_orititle}" readonly><br>
-				<input type="text" name="mo_day" class="txt_box2 m_bundle2 bx-collection" value="${mo.mo_day}" readonly>
+				<input type="text" name="mo_orititle" class="txt_box2 bx-collection" value="${mo.mo_orititle}"><br>
+				<input type="text" name="mo_day" class="txt_box2 m_bundle2 bx-collection" value="${mo.mo_day}">
 				<span style="margin-left:-30px;">・</span>
-				<input type="text" name="mo_country" class="txt_box2 m_bundle2 bx-collection" value="${mo.mo_country}" readonly>
+				<input type="text" name="mo_country" class="txt_box2 m_bundle2 bx-collection" value="${mo.mo_country}">
 				<span style="margin-left: -34px;">・</span>
-				<input type="text" name="mo_genre" class="txt_box2 m_bundle2 bx-collection" value="${mo.mo_genre}" readonly><br>
-				<input type="text" name="mo_time" class="txt_box2 bx-collection" value="${mo.mo_time}" readonly>
+				<input type="text" name="mo_genre" class="txt_box2 m_bundle2 bx-collection" value="${mo.mo_genre}"><br>
+				<input type="text" name="mo_time" class="txt_box2 bx-collection" value="${mo.mo_time}" >
 			</div>
 			<div id="resize">
 				<textarea id="basic" class="textarea_size bx-collection">${mo.mo_basic}</textarea>
@@ -103,58 +103,10 @@
 	</div>
 	<div>
 		<div id="button_bar">
-			<!-- <button type="button" class="btn" id="Modify_btn">수정</button> -->
-			<button type="button" class="btn" id="Modify_btn"><a href="/board/managermode/contentModification?MO_NUM=${mo.mo_num}" style="color: #767582;"></button>
-			<button type="button" class="btn" id="Delete_btn">삭제</button>
+			<button type="button" class="btn" id="Modify_btn">수정 완료</button>
+			<button type="button" class="btn"><a href="board/managermode/movieContents?MO_NUM=${mo.mo_num}">취소</a></button>
 		</div>
 	</div>
 </div>
 </body>
-<script type="text/javascript">
-	// textarea 자동 높이 
-	$('#resize').on('change keydown keyup paste cut', 'textarea', function(){
-		$(this).height(0).height(this.scrollHeight+2);
-		if($(this).height()>50){
-			$('textarea#basic').css("overflow", "auto");
-		}else{
-			$('textarea#basic').css("overflow", "hidden");
-		}
-	}).find('textarea#basic').change();
-	
-	//게시글 수정
-	/* $('#Modify_btn').click(function(){
-		var num=$('#num').val();
-		$.ajax({
-			url: '/board/managermode/contentModification',
-			type: 'post',
-			data: {num:num},
-			success: function(data){
-				$('#center').html(data);
-			},
-			error: function(err){
-				console.log(err);
-			}
-		});
-	}); */
-	
-	//게시글 삭제
-	$('#Delete_btn').click(function(){
-		var num=$('#num').val();
-		$.ajax({
-			url: '/board/rest/managermode/deleteMovie',
-			type: 'post',
-			data:{num:num},
-			dataType: 'json',
-			success: function(data){
-				if(data==1){
-					alert("삭제가 완료되었습니다.");
-					location.href="/board/managermode/managerPage";
-				}
-			},
-			error: function(err){
-				console.log(err);
-			}
-		});
-	});
-</script>
 </html>

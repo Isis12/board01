@@ -25,11 +25,12 @@ public class menuMM {
 	
 	ModelAndView mav;
 
-	public ModelAndView movieRegistration(MultipartHttpServletRequest multi) {
+	public ModelAndView movieRegistration(MultipartHttpServletRequest multi, Integer pageNum) {
 		mav = new ModelAndView();
 		String view = null;
 		
 		Movie mo = new Movie();
+		ArrayList<Movie>mList=null;
 		
 		String name= multi.getParameter("mo_title");
 		String day= multi.getParameter("mo_day");
@@ -51,18 +52,26 @@ public class menuMM {
 		System.out.println(file);
 		mo.setMo_photo(file);
 		
+		pageNum=(pageNum==null)?1:pageNum;
+		if(pageNum<=0) {
+			System.out.println("잘못된 페이지 번호");
+		}
+		
 		boolean result = mgDao.mregistration(mo);
 		System.out.println(name);
 		
 		if(result) {
-			view= "/managermode/mregistration";
-			mav.addObject("msg","성공적으로 등록되었습니다..");
-			System.out.println("성공");
-			
+			mList=mgDao.getMovieList(pageNum);
+			if(mList!=null && mList.size()!=0) {
+				mList=mgDao.getMovieList(pageNum);
+				view= "/managermode/mregistration";
+				mav.addObject("check","1");
+				System.out.println("등록성공");
+			}
 		}else {
 			view= "/managermode/mregistration";
-			mav.addObject("msg","등록이 실패하였습니다.");
-			System.out.println("실패");
+			mav.addObject("check", "2");
+			System.out.println("등록실패");
 		}
 		mav.setViewName(view);
 		return mav;
@@ -121,6 +130,20 @@ public class menuMM {
 			value="1";
 		}
 		return value;
+	}
+
+	public ModelAndView movieModify(int MO_NUM) {
+		mav=new ModelAndView();
+		String view=null;
+		int num=MO_NUM;
+		Movie movie=mgDao.getContents(num);
+		System.out.println("들어갔을까?");
+		
+		System.out.println("movie="+movie);
+		mav.addObject("mo", movie);
+		view="/managermode/contentModification";
+		mav.setViewName(view);
+		return mav;
 	}
 
 

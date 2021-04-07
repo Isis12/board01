@@ -20,13 +20,15 @@ public class ManagermodeRestController {
 	
 	ModelAndView mav;
 	
+	//영화 등록
 	@PostMapping(value = "/managermode/movieregistration")
-	public ModelAndView pregistration(MultipartHttpServletRequest multi) {
-		mav= me.movieRegistration(multi);
+	public ModelAndView pregistration(MultipartHttpServletRequest multi, Integer pageNum) {
+		mav= me.movieRegistration(multi, pageNum);
 		System.out.println("들어가라");
 		return mav;
 	}
 	
+	//영화 삭제
 	@PostMapping(value = "/managermode/deleteMovie")
 	public String deleteMovie(String num) {
 		String value=me.deleteMovie(num);

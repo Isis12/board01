@@ -25,4 +25,8 @@
 		DELETE FROM MOVIE WHERE MO_NUM=#{num}
 	</delete>
 	
+	<select id="getModify" parameterType="string" resultType="Movie">
+		SELECT * FROM MOVIE WHERE MO_NUM=#{num}
+	</select>
+	
 </mapper>
