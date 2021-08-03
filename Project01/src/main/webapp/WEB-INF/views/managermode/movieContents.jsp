@@ -23,11 +23,6 @@
 <link rel="stylesheet" type="text/css" href="/board/css/movieDetail.css?after">
 
 <title>영화 상세보기</title>
-<style>
-#Modify_btn{
-  color: #767582;
-}
-</style>
 </head>
 <body>
 <!-- ======= Header ======= -->
@@ -109,7 +104,7 @@
 	<div>
 		<div id="button_bar">
 			<!-- <button type="button" class="btn" id="Modify_btn">수정</button> -->
-			<button type="button" class="btn" id="Modify_btn"><a href="/board/managermode/contentModification?MO_NUM=${mo.mo_num}" style="color: #767582;">수정</a></button>
+			<button type="button" class="btn" id="Modify_btn"><a href="/board/managermode/contentModification?MO_NUM=${mo.mo_num}" style="color: #767582;"></button>
 			<button type="button" class="btn" id="Delete_btn">삭제</button>
 		</div>
 	</div>
@@ -126,7 +121,22 @@
 		}
 	}).find('textarea#basic').change();
 	
-
+	//게시글 수정
+	/* $('#Modify_btn').click(function(){
+		var num=$('#num').val();
+		$.ajax({
+			url: '/board/managermode/contentModification',
+			type: 'post',
+			data: {num:num},
+			success: function(data){
+				$('#center').html(data);
+			},
+			error: function(err){
+				console.log(err);
+			}
+		});
+	}); */
+	
 	//게시글 삭제
 	$('#Delete_btn').click(function(){
 		var num=$('#num').val();

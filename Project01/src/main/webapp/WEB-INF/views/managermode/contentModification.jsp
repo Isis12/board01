@@ -40,7 +40,7 @@
 </header><!-- End Header -->
 <div id="center" style="float: left;">
 	<div class="h-title">
-		<h1 style="font-weight: 400; float: left;">영화 상세보기_수정</h1>
+		<h1 style="font-weight: 400; float: left;">영화 상세보기</h1>
 		<!-- <span class="bracket" style="margin-left: 6px;">(</span> -->
 		<input type="text" id="num" name="mo_num" value="${mo.mo_num}" readonly>
 		<!-- <span class="bracket" style="margin-left: -29%;">)</span> -->
@@ -102,27 +102,11 @@
 		</div><br>
 	</div>
 	<div>
-		<div id="button_bar" style="margin: 18px 10px 0 77%;">
-			<button type="button" class="btn" id="Modify_btn" style="width: 85px; margin-left: 15px;">수정 완료</button>
-			<button type="button" class="btn"><a href="/board/managermode/movieContents?MO_NUM=${mo.mo_num}">취소</a></button>
+		<div id="button_bar">
+			<button type="button" class="btn" id="Modify_btn">수정 완료</button>
+			<button type="button" class="btn"><a href="board/managermode/movieContents?MO_NUM=${mo.mo_num}">취소</a></button>
 		</div>
 	</div>
 </div>
 </body>
-<script type="text/javascript">
-	$("#Modify_btn").click(function(){
-		var num= $('#num').val();
-		$.ajax({
-			url: '/board/rest/managermode/movieModify',
-			type: 'post',
-			data: {num:num},
-			success: function(data){
-				console.log(data);				
-			},
-			error: function(err){
-				console.log(err);
-			}
-		});
-	});
-</script>
 </html>
