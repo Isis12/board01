@@ -29,7 +29,14 @@ public class ManagermodeRestController {
 	}
 	
 	//영화 삭제
-	@PostMapping(value = "/managermode/deleteMovie")
+	@PostMapping(value = "/managermode/movieModify")
+	public ModelAndView movieModify(String num) {
+		mav=me.movieModifyComplete(num);
+		return mav;
+	}
+	
+	//영화 수정
+	@PostMapping(value = "/managermode/")
 	public String deleteMovie(String num) {
 		String value=me.deleteMovie(num);
 		return value;

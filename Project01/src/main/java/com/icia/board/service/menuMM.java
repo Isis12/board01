@@ -146,6 +146,13 @@ public class menuMM {
 		return mav;
 	}
 
+	public ModelAndView movieModifyComplete(String num) {
+		mav=new ModelAndView();
+		String view= null;
+		
+		return null;
+	}
+
 
 
 
