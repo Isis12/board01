@@ -3,17 +3,12 @@ package com.icia.board.service;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import com.icia.board.bean.Member;
 import com.icia.board.dao.IMemberDao;
-import com.icia.board.dao.MemberDao;
 
 @Component
 public class MemberMM {
